@@ -1,6 +1,9 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -23,7 +26,10 @@ public class PolView extends JFrame {
 
 	private PolModel m_model;
 
+	private Container content;
 	private JPanel panel;
+	private JPanel panel2;
+	private JPanel panel3;
 	private JTextField t_rem = new JTextField(25);
 	private JTextField t_input = new JTextField(25);
 	private JTextField t_output = new JTextField(25);
@@ -46,30 +52,44 @@ public class PolView extends JFrame {
 	 */
 	public PolView(PolModel model) {
 		this.m_model = model;
+		content = getContentPane();
+		content.setLayout((new BorderLayout()));
 
-		GridLayout layout = new GridLayout(5, 3);
-		panel = new JPanel(layout);
+		panel = new JPanel(new GridLayout(7, 2));
+		panel2 = new JPanel(new GridLayout(3, 2));
+		panel3 = new JPanel();
 
 		panel.add(l_message);
 		panel.add(l_empty2);
-		panel.add(b_divBtn);
-		panel.add(b_subBtn);
-		panel.add(b_mulBtn);
-		panel.add(b_addBtn);
-		panel.add(b_integrateBtn);
-		panel.add(b_derivateBtn);
-		panel.add(b_clearBtn);
+		
 		panel.add(l_input);
-		panel.add(l_output);
-		panel.add(l_rem);
 		panel.add(t_input);
+		panel.add(l_output);
 		panel.add(t_output);
+		
+		panel.add(l_rem);
 		panel.add(t_rem);
 
+		panel3.add(b_clearBtn,Component.CENTER_ALIGNMENT);
+		
+		panel2.add(b_addBtn);
+		panel2.add(b_subBtn);
+		panel2.add(b_mulBtn);
+		panel2.add(b_divBtn);
+		panel2.add(b_derivateBtn);
+		panel2.add(b_integrateBtn);
+		
+		
+
+		content.add(panel2, BorderLayout.SOUTH);
+		content.add(panel, BorderLayout.NORTH);
+		content.add(panel3, BorderLayout.CENTER);
+
 		this.setTitle("Polinomial Calculator");
-		this.setContentPane(panel);
-		this.pack();
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.pack();
+		// this.setSize(800, 800);
+		this.setLocationRelativeTo(null);
 		reset();
 	}
 
