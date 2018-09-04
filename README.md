@@ -1,5 +1,5 @@
 # Polynomial processing
-This is a GUI `Java` application that works with polynom processing and operations.  
+This is a GUI `Java` application that works with polynomal processing and operations.  
 ### Supported  operations:
 -  addition
 -  substraction
