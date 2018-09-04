@@ -1,4 +1,4 @@
-# Polinom-processing
+# Polynomial processing
 This is a GUI `Java` application that works with polynom processing and operations.  
 ### Supported  operations:
 -  addition
